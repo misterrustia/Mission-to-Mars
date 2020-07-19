@@ -21,7 +21,7 @@ def scrape_all():
         "news_paragraph": News_paragraph,
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
-        "last_modified": dt.datetime.new()
+        "last_modified": dt.datetime.now()
     }
 
 
