@@ -15,6 +15,9 @@ def scrape_all():
 
     news_title, News_paragraph = mars_news(browser)
 
+   # #challenge objects need to be added like above 
+       ##  individual images and titles? or call i call dic?      = hem_scrape(browser)
+        ## then from there index and call up each thing or can I get a dict to show up ? 
     #run all scrapping functions and store results in a dicitionary 
     data ={
         "news_title": news_title,
@@ -22,7 +25,7 @@ def scrape_all():
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
         "last_modified": dt.datetime.now(),
-        "hem_info":hem_scrape()
+        "hem_info":hem_scrape(browser)
     }
 
 
@@ -192,11 +195,10 @@ def mars_facts():
         #pandas can set up the table to be put back onto the web !!! 
 
 
-def hem_scrape():
+def hem_scrape(browser):
     try:
 
-        browser = Browser('chrome',executable_path ="chromedriver", headless = False)
-        # visit the mars nasa news site
+        # visit challenge page
         url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
         browser.visit(url)
 
@@ -286,11 +288,13 @@ def hem_scrape():
 
 
         hem_1_dic=  {"img_url":frst_hem_pic,"title":first_hem_title }
-        hem_2_dic= {"img_url":second_hem_link,"title":second_hem_title}
+        hem_2_dic= {"img_url":second_hem_pic,"title":second_hem_title}
         hem_3_dic= {"img_url":third_hem_pic,"title":third_hem_title}
         hem_4_dic= {"img_url":forth_hem_pic,"title":forth_hem_title}
         
         hem_all_lst=[hem_1_dic, hem_2_dic, hem_3_dic, hem_4_dic]
+        #list of only pictures 
+        #hem_all_pic_link=[frst_hem_pic,second_hem_pic, third_hem_pic,forth_hem_pic]
         
         browser.quit()
 

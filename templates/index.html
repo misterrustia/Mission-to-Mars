@@ -50,11 +50,14 @@
             </div>
         </div>
     </div>
-    <!--challenge list added-->
-    <div class="row" id="challenge_images">
-        <div class="col-md-12">
-            <h4>challenge images</h4>
-            {{challenge | safe}}
+    <!--challenge list !! needs to be revised here added-->
+    <div class="row" id="challenge_images" style="margin-left: 35px;">
+        <div class="col-md-12 thumbnail">
+            <h1>challenge images</h1>
+            {% for hem in mars.hem_info %}
+            <h3 style="text-align: center;">{{hem.title}}</h3>
+            <img src="{{ hem.img_url }}" width=600px height=600px>
+            {% endfor %}
         </div>
     </div>
   </div>
